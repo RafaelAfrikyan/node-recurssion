@@ -10,6 +10,9 @@ const changeInnerText = (node) => {
 
 function recursionOnDOM(nodeList, changeInnerText) {
   for (let i = 0; i < nodeList.length; i++) {
+    if (nodeList[i].childNodes) {
+      recursionOnDOM(nodeList[i].childNodes, changeInnerText);
+    }
     changeInnerText(nodeList[i]);
   }
   return nodeList;
